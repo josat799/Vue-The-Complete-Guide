@@ -2,12 +2,27 @@ const app = Vue.createApp({
   data() {
     return {
       counter: 0,
-      name: "",
+      name: '',
     };
   },
+  computed: {
+    fullName() {
+      if (this.name === '') {
+        return '';
+      }
+      return this.name + ' ' + 'Atoui'
+    },
+  },
   methods: {
+    outPutFullName() {
+      if (this.name === '') {
+        return '';
+      }
+      return this.name + ' ' + 'Atoui'
+    },
+
     resetInput() {
-      this.name = "";
+      this.name = '';
     },
     add(num) {
       this.counter += num;
@@ -15,9 +30,6 @@ const app = Vue.createApp({
     reduce(num) {
       this.counter -= num;
     },
-    inputName(event, lastname) {
-      this.name = event.target.value;
-    }
   }
 });
 
