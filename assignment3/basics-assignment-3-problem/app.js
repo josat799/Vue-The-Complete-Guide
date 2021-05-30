@@ -2,20 +2,26 @@ const app = Vue.createApp({
   data() {
     return {
       counter: 0,
-      message: '',
     };
   },
   watch: {
-    counter(value) {
-      if (value > 37) {
-        this.message = 'Too much!';
-      } else {
-          this.message = 'Not there yet!';
-      }
+    message() {
+        const that = this;
       setTimeout( function() {
-          this.counter = 0;
+          that.counter = 0;
       }, 5000);
     }
+  },
+  computed: {
+      message() {
+          if (this.counter < 37) {
+              return 'Not there yet!';
+            } else if (this.counter === 37) {
+              return 37;
+            } else {
+                return 'Too much!'
+            }
+      }
   },
   methods: {
     add(num) {
