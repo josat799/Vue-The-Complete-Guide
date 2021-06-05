@@ -17,7 +17,7 @@ const app = Vue.createApp({
         },
         inlineParagraph() {
             return {
-                color: this.activeColor,
+                backgroundColor: this.activeColor,
             };
         }
 
